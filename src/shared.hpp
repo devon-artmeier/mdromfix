@@ -22,6 +22,7 @@ typedef unsigned short     t_us;
 typedef unsigned long long t_ull;
 
 #include <algorithm>
+#include <cmath>
 #include <cstring>
 #include <fstream>
 #include <iostream>

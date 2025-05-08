@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 		t_ull size = input.tellg();
 		input.seekg(0, std::ios::beg);
 		
-		t_ull padded_size = 1ULL << (static_cast<int>(log2(size - 1)) + 1);
+		t_ull padded_size = 1ULL << (static_cast<int>(std::log2(size - 1)) + 1);
 		if (dont_pad) {
 			padded_size = size + (size & 1);
 		}

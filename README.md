@@ -1,4 +1,5 @@
 # Sega Genesis/Mega Drive ROM Fixer
+[![Build Status](https://github.com/devon-artmeier/mdromfix/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/devon-artmeier/mdromfix/actions/workflows/cmake-multi-platform.yml)
 
 This is a tool to pad and calculate checksum for Sega Genesis/Mega Drive ROMs.
 

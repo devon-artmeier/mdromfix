@@ -8,3 +8,5 @@ add_executable(mdromfix
 if(MSVC)
 	add_definitions("/wd6385")
 endif()
+
+install(TARGETS mdromfix)

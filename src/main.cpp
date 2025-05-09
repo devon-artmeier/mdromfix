@@ -18,7 +18,7 @@
 
 int main(int argc, char* argv[])
 {
-	if (argc < 1) {
+	if (argc < 2) {
 		std::cout << "Usage: mdromfix <-q> <-d> <-p [pad value]> [rom file]" << std::endl << std::endl <<
 		             "           <-q>             - Quiet mode" << std::endl <<
 		             "           <-d>             - Don't pad" << std::endl <<

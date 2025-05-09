@@ -3,8 +3,10 @@
 # ------------------------------------------------------------------------------
 
 ifeq ($(OS),Windows_NT)
+MKDIR                := mkdir
 RMDIR                := rmdir /s /q
 else
+MKDIR                := mkdir -p
 RMDIR                := rm -rf
 endif
 
@@ -13,8 +15,19 @@ endif
 # ------------------------------------------------------------------------------
 
 OUT_PATH             := out
+BUILD_PATH           := $(OUT_PATH)/build
 
 OUT_PATH_EXISTS      := $(wildcard $(OUT_PATH))
+
+# ------------------------------------------------------------------------------
+# Tool flags
+# ------------------------------------------------------------------------------
+
+ifeq ($(OS),Windows_NT)
+CMAKE_INSTALL_FLAGS  := --prefix="$(OUT_PATH)"
+else
+CMAKE_INSTALL_FLAGS  := 
+endif
 
 # ------------------------------------------------------------------------------
 # Reserved rules
@@ -26,18 +39,16 @@ OUT_PATH_EXISTS      := $(wildcard $(OUT_PATH))
 # Make all
 # ------------------------------------------------------------------------------
 
-all:
-ifeq ($(OUT_PATH_EXISTS),)
-	@cmake -S . -B $(OUT_PATH)
-endif
-	@cmake --build $(OUT_PATH) --config Release
+all: $(OUT_PATH)
+	@cmake -S . -B "$(BUILD_PATH)"
+	@cmake --build "$(BUILD_PATH)" --config Release
 
 # ------------------------------------------------------------------------------
 # Install
 # ------------------------------------------------------------------------------
 
 install:
-	@cmake --install $(OUT_PATH) --config Release
+	@cmake --install "$(BUILD_PATH)" --config Release $(CMAKE_INSTALL_FLAGS)
 
 # ------------------------------------------------------------------------------
 # Clean
@@ -47,5 +58,12 @@ clean:
 ifneq ($(OUT_PATH_EXISTS),)
 	@$(RMDIR) "$(OUT_PATH)"
 endif
+
+# ------------------------------------------------------------------------------
+# Path rules
+# ------------------------------------------------------------------------------
+
+$(OUT_PATH):
+	@$(MKDIR) "$@"
 
 # ------------------------------------------------------------------------------

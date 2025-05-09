@@ -12,3 +12,9 @@ This is a tool to pad and calculate checksum for Sega Genesis/Mega Drive ROMs.
         <-p [pad value]> - Pad byte value
         [rom file]       - ROM file
 
+## Build Instructions
+
+CMake is required to build this.
+
+* On Windows, you can run "make.bat" and the built executable will be put in the "out/bin" folder.
+* On other systems, you can call "make" and then "make install".

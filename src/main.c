@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 	header_rom_length = (remain_length + ROM_HEADER_LENGTH) - 1;
 	while (remain_length > 0) {
 		if ((io_length = fread(buffer, 1, (remain_length > BUFFER_LENGTH) ? BUFFER_LENGTH : remain_length, fp)) == 0) {
-			fprintf(stderr, "Failed to read from \"%s\". %i\n", rom_filename, remain_length);
+			fprintf(stderr, "Failed to read from \"%s\".\n", rom_filename);
 			if (fclose(fp)) {
 				fprintf(stderr, "Failed to close \"%s\".\n", rom_filename);
 			}

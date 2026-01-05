@@ -1,16 +1,15 @@
 # Sega Genesis/Mega Drive ROM Fixer
 [![Build Status](https://github.com/devon-artmeier/mdromfix/actions/workflows/cmake-multi-platform.yml/badge.svg)](https://github.com/devon-artmeier/mdromfix/actions/workflows/cmake-multi-platform.yml)
 
-This is a tool to pad and calculate checksum for Sega Genesis/Mega Drive ROMs.
+This is a tool to pad/align and calculate checksum for Sega Genesis/Mega Drive ROMs.
 
 ## Usage
 
-    mdromfix <-q> <-d> <-p [pad value]> [rom file]
-    
-        <-q>             - Quiet mode
-        <-d>             - Don't pad
-        <-p [pad value]> - Pad byte value
-        [rom file]       - ROM file
+    mdromfix (-m) (-d) (-p [value]) (filename)
+        -m         - Set mapper mode
+        -d         - Don't apply padding (only alignment)
+        -p [value] - Set padding/alignment value (0-255)
+        [filename] - ROM filename
 
 ## Build Instructions
 

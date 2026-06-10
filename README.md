@@ -5,7 +5,7 @@ This is a tool to pad/align and calculate checksum for Sega Genesis/Mega Drive R
 
 ## Usage
 
-    mdromfix (-m) (-d) (-p [value]) (filename)
+    mdromfix (-m) (-d) (-p [value]) [filename]
         -m         - Set mapper mode
         -d         - Don't apply padding (only alignment)
         -p [value] - Set padding/alignment value (0-255)
